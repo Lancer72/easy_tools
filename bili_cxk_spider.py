@@ -36,6 +36,7 @@ def search():
         all_h = browser.window_handles
         browser.switch_to.window(all_h[1])
         get_source()
+        # 找到页数
         total = WAIT.until(EC.presence_of_element_located((By.CSS_SELECTOR,'#server-search-app > div.contain > div.body-contain > div > div.page-wrap > div > ul > li.page-item.last > button')))
         return int(total.text)
     except TimeoutException:
